@@ -221,7 +221,7 @@ get_s <- function(t){
 most_used_words_sentiment_graph <- function(data){
     p <- data %>% arrange(desc(Usage)) %>% head(20) %>% arrange(Sentiment) %>% ggplot() +
         geom_bar(aes(x = word, y = Sentiment, fill = Usage), stat = "identity") +
-        coord_flip()
+        coord_flip() + theme_minimal()
     ggplotly(p)
 }
 
