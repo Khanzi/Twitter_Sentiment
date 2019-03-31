@@ -43,19 +43,3 @@ This app is, in a way, tracking the candidate popularity. Favorite and retweet c
 
 The web-app is a Senior Capstone 2 Project
 
-## Contact Me
-
-
-
-**Connect with me on LinkedIn**
-<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="kahlil-wehmeyer-25661785"><a class="LI-simple-link" href='https://www.linkedin.com/in/kahlil-wehmeyer-25661785?trk=profile-badge'>Kahlil Wehmeyer</a></div>
-
-***
-
-**Follow me on Twitter**
-
-<a href="https://twitter.com/Khanzi_w?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @Khanzi_w</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-***
-
-## [Git Repo]("https://github.com/Khanzi/Twitter_Sentiment")
