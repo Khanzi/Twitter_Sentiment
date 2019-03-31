@@ -1,43 +1,36 @@
-
-# Libraries ---------------------------------------------------------------
-
-
-library(shiny)
-library(tidyverse)
-library(rtweet)
-library(lubridate)
-library(NLP)
-library(tidytext)
-library(magrittr)
-library(wordcloud)
-library(reshape2)
-library(plotly)
-library(tm)
-library(tidyr)
-library(igraph)
-library(ggraph)
+##
+## Script name: Twitter Sentiment Server
+##
+## Purpose of script: 
+##
+require(shiny)
+require(tidyverse)
+require(rtweet)
+require(lubridate)
+require(NLP)
+require(tidytext)
+require(magrittr)
+require(wordcloud)
+require(reshape2)
+require(plotly)
+require(tm)
+require(tidyr)
+require(igraph)
+require(ggraph)
 
 
 # Global Vars & Pars ------------------------------------------------------
 
-NUMBER_OF_TWEETS <-  50
 TWITTER_BLUE <- "#38A1F3"
+NUMBER_OF_TWEETS <- 70
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
+    
 
 # Modals -----------------------------------------------------------------
 
-observeEvent(input$smart, {
-    showModal(modalDialog(
-        title = "Watch out Hadley",
-        HTML('<img src="https://i.gifer.com/origin/9c/9c1c439c2bcbdb332dd92ccce88137d2_w200.gif">'),
-        easyClose = TRUE,
-        footer = NULL
-    ))
-    
-})
 showModal(modalDialog(
     title = "Please be patient",
     "We are loading live twitter data, this might take a couple minutes. Once all the data is loaded the app will start producing results"
@@ -251,16 +244,11 @@ output$retweets_comparison <- renderPlotly({
 output$candidate_a_mentions_sentiment <- renderPlotly({most_used_words_sentiment_graph(get_s(data_selector(input$candidate_a)))})
 
 output$candidate_b_mentions_sentiment <- renderPlotly({most_used_words_sentiment_graph(get_s(data_selector(input$candidate_b)))})
+
+output$candidate_a_mentions_topic_model <- renderPlot(topic_graph(data_selector(input$candidate_a)))
+
+output$candidate_b_mentions_topic_model <- renderPlot(topic_graph(data_selector(input$candidate_b)))
 # Refresh Data ------------------------------------------------------------
 
-observeEvent(input$update_archive,{
-    showModal(modalDialog(
-        title = "Refreshing Data",
-        HTML('<img src="https://thumbs.gfycat.com/CostlyAdmiredHackee-small.gif">'),
-        easyClose = TRUE,
-        footer = NULL
-    ))
-    get_data()
-})
 
 })

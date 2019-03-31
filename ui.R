@@ -1,11 +1,11 @@
 
 # Libraries ---------------------------------------------------------------
 
-library(shiny)
-library(tidyverse)
-library(magrittr)
-library(plotly)
-library(shinythemes)
+require(shiny)
+require(tidyverse)
+require(magrittr)
+require(plotly)
+require(shinythemes)
 
 candidates <- c("Cory Booker", "Pete Buttigieg", "Julian Castro", "John Delaney", "Tulsi Gabbard", "Kirsten Gillibrand","Kamala Harris","Amy Klobuchar","Donald Trump","Elizabeth Warren","Bernie Sanders",
                 "Beto O Rourke")
@@ -34,6 +34,7 @@ shinyUI(fluidPage(
                
                
                tabPanel("Comparisons",
+                       column(12, h1("This data is from public tweets mentioning the selected candidate.")),
                        column(6, selectInput("candidate_a","Candidate A", choices = candidates)),
                        column(6, selectInput("candidate_b", "Candidate B", choices = candidates,selected = candidates[2])),
                        hr(),
@@ -41,9 +42,11 @@ shinyUI(fluidPage(
                               hr(),
                               plotlyOutput("retweets_comparison")),
                        column(6,h2(textOutput("candidate_name_a")),
-                              plotlyOutput("candidate_a_mentions_sentiment")),
+                              plotlyOutput("candidate_a_mentions_sentiment"),
+                              plotOutput("candidate_a_mentions_topic_model")),
                        column(6,h2(textOutput("candidate_name_b")),
-                              plotlyOutput("candidate_b_mentions_sentiment"))
+                              plotlyOutput("candidate_b_mentions_sentiment"),
+                              plotOutput("candidate_b_mentions_topic_model"))
                        ),
                
                
@@ -56,19 +59,7 @@ shinyUI(fluidPage(
                                    includeMarkdown("about.md")),
                           
                           tabPanel("Missing Candidate",
-                                   includeMarkdown("missing.md")),
-                          
-                          
-                          tabPanel("Archive",
-                                   h1("So you want more data eh?"),
-                                   h2("Well you could press this button but be warned..."),
-                                   h3("It will take a considerable amount of time for new data to be downloaded and added to the existing archive"),
-                                   br(),
-                                   column(4, actionButton("update_archive","Update Archive")),
-                                   column(4, tags$a(class="btn btn-default", href="https://www.youtube.com/watch?v=dQw4w9WgXcQ", "Delete Archive")),
-                                   column(4, actionButton("smart","Something so intelligble I'm not even allowed to disclose it's purpose")),
-                                   br(),
-                                   h2("Now that you've pressed all the buttons -  here's some stats about the archive"))))
+                                   includeMarkdown("missing.md"))))
                )
 
     
