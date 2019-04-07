@@ -25,6 +25,7 @@ shinyUI(fluidPage(
                             h2("Topic Model"),
                             plotOutput("candidate_topic_graph"),
                             h2("Words Most Unique to Selected Candidate"),
+                            h4("Checkt he about page for TF, IDF and TF_IDF definitions."),
                             tableOutput("candidate_unique_words"),
                             h2("Words used by Candidate"),
                             plotlyOutput("candidate_sentiment_word")
@@ -51,12 +52,11 @@ shinyUI(fluidPage(
                
                
                
-               
                # DONE
                # For updates edit the respective markdown files.
                navbarMenu("More",
                           tabPanel("About",
-                                   includeMarkdown("about.md")),
+                                   withMathJax(includeMarkdown("about.md"))),
                           
                           tabPanel("Missing Candidate",
                                    includeMarkdown("missing.md"))))

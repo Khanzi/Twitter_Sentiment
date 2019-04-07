@@ -6,7 +6,20 @@ This app was created with the intention of getting a better understanding of the
 
 This app is, in a way, tracking the candidate popularity. Favorite and retweet counts are a somewhat reasonable measure of how the public feels about a candidates message.
 
+# Explaning TF, IDF, and TF_IDF
 
+## Term Frequency $(tf)$
+
+How frequently a word appears in a document
+
+## Inverse Document Frequency $(idf)$
+
+$idf = ln(\frac{n_{documents}}{n_{documents\ containing term}})$
+
+## TF IDF
+>The statistic tf-idf is intended to measure how important a word is to a document in a collection (or corpus) of documents, for example, to one novel in a collection of novels or to one website in a collection of websites.
+
+$idf \times tf$
 
 ## References
 
@@ -20,12 +33,12 @@ This app is, in a way, tracking the candidate popularity. Favorite and retweet c
 
 ### Packages Used:
 
-- [Tidyverse]("https://www.tidyverse.org/")
+- [Tidyverse](https://www.tidyverse.org/)
 - [Plotly](https://plot.ly/r/)
-- [Tidytext]("https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html")
-- [Topic Models]("https://cran.r-project.org/web/packages/tm/index.html")
-- [igraph]("https://igraph.org/r/")
-- [ggraph]("https://cran.r-project.org/web/packages/ggraph/index.html")
+- [Tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
+- [Topic Models](https://cran.r-project.org/web/packages/tm/index.html)
+- [igraph](https://igraph.org/r/)
+- [ggraph](https://cran.r-project.org/web/packages/ggraph/index.html)
 
 # About the Author
 

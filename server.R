@@ -248,7 +248,9 @@ output$candidate_b_mentions_sentiment <- renderPlotly({most_used_words_sentiment
 output$candidate_a_mentions_topic_model <- renderPlot(topic_graph(data_selector(input$candidate_a)))
 
 output$candidate_b_mentions_topic_model <- renderPlot(topic_graph(data_selector(input$candidate_b)))
-# Refresh Data ------------------------------------------------------------
+# Leaderboard ------------------------------------------------------------
+
+
 
 
 })
